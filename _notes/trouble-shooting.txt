@@ -1,0 +1,17 @@
+
+> cant select (or view) virtual environment when click ctrl+shift+p > python select interpreter
+
+  The only solution I found was to delete the venv and recreate it. I followed these steps but I'll provide a brief summary for Windows:
+
+    1. Activate your virtualenv. Open Powershell and Go to the parent folder where your Virtual Environment is located (e.g. C:\Repos\boliga-ai-images-scripts) and run .venv\scripts\activate. 
+        Keep in mind that the first name "venv" can vary.
+    2. Create a requirements.txt file. pip freeze requirements.txt (maybe won't work, just continue).
+    3. deactivate to exit the venv
+    4. rm venv to delete the venv > select yes to all
+    5. py -m venv venv to create a new one
+    6. pip install -r requirements.txt to install the requirements.
+
+This worked for me, I didn't delete the old, but created a new python -m venv /path/newVenv in the ~/Envs folder, C:\Users\Admin\Envs. Maybe VS Code is searching in the ~/Envs folder, or it needs to be added to the python.path in the View -> Command Pallete -> >Preferences: Open User Settings.
+
+*https://stackoverflow.com/questions/66869413/visual-studio-code-does-not-detect-virtual-environments
+

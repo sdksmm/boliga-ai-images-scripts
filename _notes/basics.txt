@@ -1,0 +1,195 @@
+Last updated: 08-04-2024
+
+-------------------------------------------
+> conditionals
+
+user_choice = input('choose a, b or c\n')
+
+if user_choice == a
+	print('you choose a')
+
+elif user_choice == b
+	print('you choose b')
+else:
+	print('you choose c')
+
+-------------------------------------------
+
+> modules
+
+Modules (are part of Python standard library)
+    docs.python.org/3/library/
+    there are many modules, just click a link and read docs about modules, features, function etc. 
+    og back to vsc and import module etc. import random 
+
+-------------------------------------------
+
+> loops
+
+expenses = [10.50, 8, 20]
+sum = 0
+for x in expenses
+	sum = sum + x
+
+print("you spent $", sum, " on lunch.", sep='') 
+#sep='' angiver at der efter seperator (,) skal være ingen mellemrum. 
+# der findes også end=''
+
+Du kan istedet for loop angive 
+total = sum(expenses)
+
+#hvis du vil stoppe en loop og komme ud af den, så brug: break
+
+-------------------------------------------
+
+> Dictionary
+
+Dictionary
+current_movies = {'Aliens 2': 1986, 'Terminator 2': 1991}
+current_movies['Hulk', 2003] #tilføjer en 
+
+current_movies[0] => viser den første film
+
+current_movies.get('Aliens 2') 
+if current_movies == None:
+	print('not in the list')
+# get henter iht. key value, men den returnerer None, hvis key ikke findes. 
+
+-------------------------------------------
+
+> List og List
+
+List of List
+Her har vi en liste som indeholder en dictionary. Dette eksempel er god til at udtrække data fra json. 
+
+contacts = {
+	"class": '3.G',
+	"students":
+	[
+		{"name": "Mohammad Mirza", "email":"msm@boliga.dk"},
+		{"name": "Bo Balderburg", "email":"bb@boliga.dk"}
+	]
+
+	for student in contacts["students"]:
+		print(student["email"])
+
+#denne vil printe kun emails. 		
+
+-------------------------------------------
+
+> json
+
+Her laver vi http requests og får json payload tilbage. 
+gå til requests.readthedocs.io/en/master
+denne handler om en python library, som kan bruges til at lave http request. 
+Denne library er a la nuget package. 
+packages installeres via pip tool, du kan se om den allerede er installeret via Terminal => pip --version
+installer request package via Termainal => pip3 install requests (du kan godt undlade 3 tallet)
+du kan få json payload fra eks. open-notify.org/Open-Notify-API/People-In-Space/ => http://api.open-notify.org/astros.json
+
+{
+  "message": "success",
+  "number": NUMBER_OF_PEOPLE_IN_SPACE,
+  "people": [
+    {"name": NAME, "craft": SPACECRAFT_NAME},
+    ...
+  ]
+}
+
+    import requests
+    people = requests.get('http:api.open-notify.org/astros.json')
+    json = people.json()
+
+    print(json)
+    print('the people currently in space are:')
+        for p in json['people']:
+            print(p['name'])
+
+    #den vil udprinte alle navne 
+
+Der er også mere smart måde at udtrække json data på eks. du ønsker du første persons navn
+first_person = json.get("people")[0].get("name")
+
+-------------------------------------------
+
+> virtual environment
+
+du kan i din python project bruge virtual environment for at:
+bruge specific version af python, afgrænse dine packages o.lign. 
+gå til docs.python.org/3/tutorial/venv.html
+
+Du laver en virtual environment via Terminal => python3 -m venv tutorial-env 
+(tutorial-env er navnet på virtual environment, ofte kaldes den blot for venv
+
+    > Aktiver virtual environment
+    Du aktiverer din virtuel environment via Terminal => tutorial-env\Scripts\activate.bat
+    eks. vil det for dette projekt være:  
+        .venv\Scripts\activate.ps1
+    når din virtual environment er aktiveret så kan du se (.venv) i den command prompt.
+
+    Du kan også aktiver virtual environment via 
+    View > Command Palette > Python Select Interpreter > scroll til .venv 
+
+-------------------------------------------
+
+> install package 
+    - Sørg for at di settings.json fil har korrekt henvising til python
+         "python.venvPath": "${env:VIRTUAL_ENV}",
+         #stien kan også skrives manuelt C:\Repos\boliga-ai-images-scripts\.venv\Scripts\python.exe
+         
+Efter at du har aktiveret din virtual environment, så kan du installere dine packages, således at de ikke bliver globalt installeret. 
+Terminal => pip3 install requests
+De bliver installeret under .venv/lib 
+
+-------------------------------------------
+
+> Functions
+
+def addition (a, b): 
+    return a + b
+#en function starter med def efterfulgt at functions navn og tilsidst x antal parametre. 
+    Function body kommer nedenunder functionen. 
+
+eks. en function kalder en anden function
+
+    def main():
+        num1 = float(input('enter first number:\n'))
+        num2 = float(input('enter second number:\n'))
+
+        result = addition(num1, num2) 
+        print('The result is', result)
+
+    main() #husk at kalde functionen
+
+
+
+
+
+-------------------------------------------
+> 
+
+
+-------------------------------------------
+
+> 
+
+
+-------------------------------------------
+> 
+
+
+-------------------------------------------
+
+> 
+
+
+-------------------------------------------
+> 
+
+
+-------------------------------------------
+
+> 
+
+
+-------------------------------------------
