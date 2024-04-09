@@ -166,8 +166,8 @@ eks. en function kalder en anden function
 
 
 -------------------------------------------
-> 
-
+> Jupyter notebook
+    to start it in browser open Terminal: jupyter notebok
 
 -------------------------------------------
 
