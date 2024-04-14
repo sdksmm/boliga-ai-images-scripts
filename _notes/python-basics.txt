@@ -171,8 +171,12 @@ eks. en function kalder en anden function
 
 -------------------------------------------
 
-> 
-
+> Retrieve system variables (windows restart is needed)
+api_key = os.getenv('OPENAI_API_KEY')
+if api_key is None:
+    print("API Key not found. Please set the OPENAI_API_KEY environment variable.")
+else:
+    openai.api_key = api_key
 
 -------------------------------------------
 > 
